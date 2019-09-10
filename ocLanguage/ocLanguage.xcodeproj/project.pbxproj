@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B920CC112327FEEF00CC0B0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC102327FEEF00CC0B0B /* main.m */; };
+		B920CC1E232800D300CC0B0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC1A232800D300CC0B0B /* main.m */; };
+		B920CC21232801A400CC0B0B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC20232801A400CC0B0B /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		B920CC0D2327FEEF00CC0B0B /* ocLanguage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ocLanguage; sourceTree = BUILT_PRODUCTS_DIR; };
-		B920CC102327FEEF00CC0B0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B920CC1A232800D300CC0B0B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../../../../../../Desktop/main.m; sourceTree = "<group>"; };
+		B920CC1F2328019800CC0B0B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		B920CC20232801A400CC0B0B /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,9 @@
 		B920CC0F2327FEEF00CC0B0B /* ocLanguage */ = {
 			isa = PBXGroup;
 			children = (
-				B920CC102327FEEF00CC0B0B /* main.m */,
+				B920CC20232801A400CC0B0B /* Person.m */,
+				B920CC1F2328019800CC0B0B /* Person.h */,
+				B920CC1A232800D300CC0B0B /* main.m */,
 			);
 			path = ocLanguage;
 			sourceTree = "<group>";
@@ -118,7 +123,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B920CC112327FEEF00CC0B0B /* main.m in Sources */,
+				B920CC21232801A400CC0B0B /* Person.m in Sources */,
+				B920CC1E232800D300CC0B0B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
