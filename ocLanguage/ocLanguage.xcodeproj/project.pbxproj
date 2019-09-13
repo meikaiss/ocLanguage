@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B920CC1E232800D300CC0B0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC1A232800D300CC0B0B /* main.m */; };
 		B920CC21232801A400CC0B0B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC20232801A400CC0B0B /* Person.m */; };
+		B920CC23232BC77B00CC0B0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC22232BC77B00CC0B0B /* main.m */; };
+		B920CC28232BD96500CC0B0B /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC27232BD96500CC0B0B /* Car.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +26,11 @@
 
 /* Begin PBXFileReference section */
 		B920CC0D2327FEEF00CC0B0B /* ocLanguage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ocLanguage; sourceTree = BUILT_PRODUCTS_DIR; };
-		B920CC1A232800D300CC0B0B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../../../../../../Desktop/main.m; sourceTree = "<group>"; };
 		B920CC1F2328019800CC0B0B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		B920CC20232801A400CC0B0B /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		B920CC22232BC77B00CC0B0B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B920CC26232BD96500CC0B0B /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		B920CC27232BD96500CC0B0B /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +63,11 @@
 		B920CC0F2327FEEF00CC0B0B /* ocLanguage */ = {
 			isa = PBXGroup;
 			children = (
+				B920CC22232BC77B00CC0B0B /* main.m */,
 				B920CC20232801A400CC0B0B /* Person.m */,
 				B920CC1F2328019800CC0B0B /* Person.h */,
-				B920CC1A232800D300CC0B0B /* main.m */,
+				B920CC26232BD96500CC0B0B /* Car.h */,
+				B920CC27232BD96500CC0B0B /* Car.m */,
 			);
 			path = ocLanguage;
 			sourceTree = "<group>";
@@ -123,8 +128,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B920CC28232BD96500CC0B0B /* Car.m in Sources */,
+				B920CC23232BC77B00CC0B0B /* main.m in Sources */,
 				B920CC21232801A400CC0B0B /* Person.m in Sources */,
-				B920CC1E232800D300CC0B0B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
