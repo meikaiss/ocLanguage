@@ -16,12 +16,20 @@
     //默认的修饰符是@private
 //@public,@protected,@private,@package,这个和Java中是相同的
 @public float _capcity; //油量
+    
+    NSString* _brand;
+    NSString* _color;
 
     
 }
 
 //类的方法要定义在类后的大括号外
 -(void)run:(float)t;
+
+-(void)setBrand:(NSString*)brand;
+-(void)setColor:(NSString*)color;
+-(void)brake;
+
 
 @end
 

@@ -10,6 +10,8 @@
 		B920CC21232801A400CC0B0B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC20232801A400CC0B0B /* Person.m */; };
 		B920CC23232BC77B00CC0B0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC22232BC77B00CC0B0B /* main.m */; };
 		B920CC28232BD96500CC0B0B /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC27232BD96500CC0B0B /* Car.m */; };
+		B920CC2B232E602D00CC0B0B /* Taxi.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC2A232E602D00CC0B0B /* Taxi.m */; };
+		B920CC2E232E631B00CC0B0B /* Truck.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC2D232E631B00CC0B0B /* Truck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,10 @@
 		B920CC22232BC77B00CC0B0B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B920CC26232BD96500CC0B0B /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		B920CC27232BD96500CC0B0B /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		B920CC29232E602D00CC0B0B /* Taxi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Taxi.h; sourceTree = "<group>"; };
+		B920CC2A232E602D00CC0B0B /* Taxi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Taxi.m; sourceTree = "<group>"; };
+		B920CC2C232E631B00CC0B0B /* Truck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Truck.h; sourceTree = "<group>"; };
+		B920CC2D232E631B00CC0B0B /* Truck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Truck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,10 @@
 				B920CC1F2328019800CC0B0B /* Person.h */,
 				B920CC26232BD96500CC0B0B /* Car.h */,
 				B920CC27232BD96500CC0B0B /* Car.m */,
+				B920CC29232E602D00CC0B0B /* Taxi.h */,
+				B920CC2A232E602D00CC0B0B /* Taxi.m */,
+				B920CC2C232E631B00CC0B0B /* Truck.h */,
+				B920CC2D232E631B00CC0B0B /* Truck.m */,
 			);
 			path = ocLanguage;
 			sourceTree = "<group>";
@@ -131,6 +141,8 @@
 				B920CC28232BD96500CC0B0B /* Car.m in Sources */,
 				B920CC23232BC77B00CC0B0B /* main.m in Sources */,
 				B920CC21232801A400CC0B0B /* Person.m in Sources */,
+				B920CC2E232E631B00CC0B0B /* Truck.m in Sources */,
+				B920CC2B232E602D00CC0B0B /* Taxi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
