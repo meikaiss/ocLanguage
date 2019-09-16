@@ -10,6 +10,9 @@
 #import "Person.h"
 #import "Taxi.h"
 #import "Truck.h"
+#import "status/Printer.h"
+#import "status/ColorPrinter.h"
+#import "status/BlackPrinter.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -18,6 +21,7 @@ int main(int argc, const char * argv[]) {
         
         test();
         
+        print();
     }
     return 0;
 }
@@ -47,6 +51,17 @@ int test(){
     [truck setColor:@"蓝色"];
     
     [truck unload];
+    
+    
+    return 0;
+}
+
+
+int print(){
+    
+    Printer* printer = [[Printer alloc] init];
+    
+    ColorPrinter* colorPrinter = [[ColorPrinter alloc] init];
     
     
     return 0;

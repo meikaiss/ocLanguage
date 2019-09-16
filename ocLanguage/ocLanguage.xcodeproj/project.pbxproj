@@ -12,6 +12,10 @@
 		B920CC28232BD96500CC0B0B /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC27232BD96500CC0B0B /* Car.m */; };
 		B920CC2B232E602D00CC0B0B /* Taxi.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC2A232E602D00CC0B0B /* Taxi.m */; };
 		B920CC2E232E631B00CC0B0B /* Truck.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC2D232E631B00CC0B0B /* Truck.m */; };
+		B920CC32232E798300CC0B0B /* Printer.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC31232E798300CC0B0B /* Printer.m */; };
+		B920CC35232E79D600CC0B0B /* ColorPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC34232E79D600CC0B0B /* ColorPrinter.m */; };
+		B920CC38232E7A1400CC0B0B /* BlackPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC37232E7A1400CC0B0B /* BlackPrinter.m */; };
+		B920CC41232E7D0F00CC0B0B /* PrinterMan.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC40232E7D0F00CC0B0B /* PrinterMan.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +41,14 @@
 		B920CC2A232E602D00CC0B0B /* Taxi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Taxi.m; sourceTree = "<group>"; };
 		B920CC2C232E631B00CC0B0B /* Truck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Truck.h; sourceTree = "<group>"; };
 		B920CC2D232E631B00CC0B0B /* Truck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Truck.m; sourceTree = "<group>"; };
+		B920CC30232E798300CC0B0B /* Printer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Printer.h; sourceTree = "<group>"; };
+		B920CC31232E798300CC0B0B /* Printer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Printer.m; sourceTree = "<group>"; };
+		B920CC33232E79D600CC0B0B /* ColorPrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorPrinter.h; sourceTree = "<group>"; };
+		B920CC34232E79D600CC0B0B /* ColorPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorPrinter.m; sourceTree = "<group>"; };
+		B920CC36232E7A1400CC0B0B /* BlackPrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlackPrinter.h; sourceTree = "<group>"; };
+		B920CC37232E7A1400CC0B0B /* BlackPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackPrinter.m; sourceTree = "<group>"; };
+		B920CC3F232E7D0F00CC0B0B /* PrinterMan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrinterMan.h; sourceTree = "<group>"; };
+		B920CC40232E7D0F00CC0B0B /* PrinterMan.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrinterMan.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +81,7 @@
 		B920CC0F2327FEEF00CC0B0B /* ocLanguage */ = {
 			isa = PBXGroup;
 			children = (
+				B920CC2F232E795100CC0B0B /* status */,
 				B920CC22232BC77B00CC0B0B /* main.m */,
 				B920CC20232801A400CC0B0B /* Person.m */,
 				B920CC1F2328019800CC0B0B /* Person.h */,
@@ -80,6 +93,21 @@
 				B920CC2D232E631B00CC0B0B /* Truck.m */,
 			);
 			path = ocLanguage;
+			sourceTree = "<group>";
+		};
+		B920CC2F232E795100CC0B0B /* status */ = {
+			isa = PBXGroup;
+			children = (
+				B920CC30232E798300CC0B0B /* Printer.h */,
+				B920CC31232E798300CC0B0B /* Printer.m */,
+				B920CC33232E79D600CC0B0B /* ColorPrinter.h */,
+				B920CC34232E79D600CC0B0B /* ColorPrinter.m */,
+				B920CC36232E7A1400CC0B0B /* BlackPrinter.h */,
+				B920CC37232E7A1400CC0B0B /* BlackPrinter.m */,
+				B920CC3F232E7D0F00CC0B0B /* PrinterMan.h */,
+				B920CC40232E7D0F00CC0B0B /* PrinterMan.m */,
+			);
+			path = status;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B920CC32232E798300CC0B0B /* Printer.m in Sources */,
 				B920CC28232BD96500CC0B0B /* Car.m in Sources */,
+				B920CC41232E7D0F00CC0B0B /* PrinterMan.m in Sources */,
+				B920CC38232E7A1400CC0B0B /* BlackPrinter.m in Sources */,
 				B920CC23232BC77B00CC0B0B /* main.m in Sources */,
 				B920CC21232801A400CC0B0B /* Person.m in Sources */,
+				B920CC35232E79D600CC0B0B /* ColorPrinter.m in Sources */,
 				B920CC2E232E631B00CC0B0B /* Truck.m in Sources */,
 				B920CC2B232E602D00CC0B0B /* Taxi.m in Sources */,
 			);
