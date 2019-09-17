@@ -11,6 +11,7 @@
 @implementation PrinterMan
 
 -(void)doPrint:(Printer*)printer{
+    NSLog(@"此PrinterMan正在使用的打印机类型为:");
     [printer print];
 }
 

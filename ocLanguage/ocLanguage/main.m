@@ -11,8 +11,9 @@
 #import "Taxi.h"
 #import "Truck.h"
 #import "status/Printer.h"
-#import "status/ColorPrinter.h"
 #import "status/BlackPrinter.h"
+#import "status/ColorPrinter.h"
+#import "status/PrinterMan.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -62,7 +63,11 @@ int print(){
     Printer* printer = [[Printer alloc] init];
     
     ColorPrinter* colorPrinter = [[ColorPrinter alloc] init];
+    BlackPrinter* blackPrinter = [[BlackPrinter alloc] init];
     
+    PrinterMan* printerMan = [[PrinterMan alloc] init];
+    [printerMan doPrint:(colorPrinter)];
+    [printerMan doPrint:(blackPrinter)];
     
     return 0;
 }
