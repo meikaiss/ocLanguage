@@ -16,6 +16,7 @@
 		B920CC35232E79D600CC0B0B /* ColorPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC34232E79D600CC0B0B /* ColorPrinter.m */; };
 		B920CC38232E7A1400CC0B0B /* BlackPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC37232E7A1400CC0B0B /* BlackPrinter.m */; };
 		B920CC41232E7D0F00CC0B0B /* PrinterMan.m in Sources */ = {isa = PBXBuildFile; fileRef = B920CC40232E7D0F00CC0B0B /* PrinterMan.m */; };
+		B9DB2B812331BC6F000358DE /* NSString+Extension123.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DB2B802331BC6F000358DE /* NSString+Extension123.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,8 @@
 		B920CC37232E7A1400CC0B0B /* BlackPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackPrinter.m; sourceTree = "<group>"; };
 		B920CC3F232E7D0F00CC0B0B /* PrinterMan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrinterMan.h; sourceTree = "<group>"; };
 		B920CC40232E7D0F00CC0B0B /* PrinterMan.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrinterMan.m; sourceTree = "<group>"; };
+		B9DB2B7F2331BC6F000358DE /* NSString+Extension123.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension123.h"; sourceTree = "<group>"; };
+		B9DB2B802331BC6F000358DE /* NSString+Extension123.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension123.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		B920CC0F2327FEEF00CC0B0B /* ocLanguage */ = {
 			isa = PBXGroup;
 			children = (
+				B9DB2B7E2331BC54000358DE /* extension */,
 				B920CC2F232E795100CC0B0B /* status */,
 				B920CC22232BC77B00CC0B0B /* main.m */,
 				B920CC20232801A400CC0B0B /* Person.m */,
@@ -108,6 +112,15 @@
 				B920CC40232E7D0F00CC0B0B /* PrinterMan.m */,
 			);
 			path = status;
+			sourceTree = "<group>";
+		};
+		B9DB2B7E2331BC54000358DE /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				B9DB2B7F2331BC6F000358DE /* NSString+Extension123.h */,
+				B9DB2B802331BC6F000358DE /* NSString+Extension123.m */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +184,7 @@
 				B920CC41232E7D0F00CC0B0B /* PrinterMan.m in Sources */,
 				B920CC38232E7A1400CC0B0B /* BlackPrinter.m in Sources */,
 				B920CC23232BC77B00CC0B0B /* main.m in Sources */,
+				B9DB2B812331BC6F000358DE /* NSString+Extension123.m in Sources */,
 				B920CC21232801A400CC0B0B /* Person.m in Sources */,
 				B920CC35232E79D600CC0B0B /* ColorPrinter.m in Sources */,
 				B920CC2E232E631B00CC0B0B /* Truck.m in Sources */,

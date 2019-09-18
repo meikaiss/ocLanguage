@@ -15,6 +15,8 @@
 #import "status/ColorPrinter.h"
 #import "status/PrinterMan.h"
 
+#import "NSString+Extension123.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -23,6 +25,8 @@ int main(int argc, const char * argv[]) {
         test();
         
         print();
+        
+        extension();
     }
     return 0;
 }
@@ -68,6 +72,24 @@ int print(){
     PrinterMan* printerMan = [[PrinterMan alloc] init];
     [printerMan doPrint:(colorPrinter)];
     [printerMan doPrint:(blackPrinter)];
+    
+    return 0;
+}
+
+
+int extension(){
+    NSString *s = @"123456@qq.com";
+    BOOL isEmail = [s validateEmail];
+    if(isEmail){
+        NSLog(@"有效邮箱");
+    }else{
+        NSLog(@"无效邮箱");
+    }
+    
+    //调用的是我们类目中的intValue方法
+    NSInteger i = [s intValue];
+    NSLog(@"intValue is %i",i);
+    
     
     return 0;
 }
