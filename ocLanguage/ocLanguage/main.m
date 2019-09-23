@@ -16,6 +16,7 @@
 #import "status/PrinterMan.h"
 
 #import "NSString+Extension123.h"
+#import "protocol/Student.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -27,6 +28,8 @@ int main(int argc, const char * argv[]) {
         print();
         
         extension();
+        
+        test22();
     }
     return 0;
 }
@@ -90,6 +93,16 @@ int extension(){
     NSInteger i = [s intValue];
     NSLog(@"intValue is %i",i);
     
+    
+    return 0;
+}
+
+
+int test22(){
+    Student* student = [[Student alloc] init];
+    
+    [student study];
+    [student finishTask];
     
     return 0;
 }
