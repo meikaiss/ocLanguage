@@ -30,6 +30,7 @@ int main(int argc, const char * argv[]) {
         extension();
         
         test22();
+        objectFun();
     }
     return 0;
 }
@@ -103,6 +104,45 @@ int test22(){
     
     [student study];
     [student finishTask];
+    
+    return 0;
+}
+
+int objectFun(){
+    
+    NSObject* nsObj1 = [[NSObject alloc] init];
+    NSObject* nsObj2 = [[NSObject alloc] init];
+    
+    //isEqual判断两个指针是否指向同一个对象
+    if ([nsObj1 isEqual:nsObj2]) {
+        NSLog(@"nsObj1和nsObj2 是同一个对象");
+    }else{
+        NSLog(@"nsObj1和nsObj2 是不同对象");
+    }
+    
+    
+    // == 判断两个指针是否指向同一个对象
+    if ( nsObj1 == nsObj2) {
+        NSLog(@"nsObj1和nsObj2 是同一个对象");
+    }else{
+        NSLog(@"nsObj1和nsObj2 是不同对象");
+    }
+    
+    Boolean isFrom = [nsObj1 isMemberOfClass:[NSObject class]];
+    NSLog(@"是否为某个类，%d", isFrom);
+    
+    Boolean isKind = [nsObj1 isKindOfClass:[NSObject class]];
+    NSLog(@"是否为某个类的子类，%d", isKind);
+    
+    //respondsToSelector的作用： 在.m文件中有此方法才会返回YES，在.m中没有则返回NO
+    Student* stu = [[Student alloc]init];
+    Boolean hasFun = [stu respondsToSelector:@selector(finishTask)];
+    NSLog(@"是否实现了此方法，%d", hasFun);
+    Boolean hasFun2 = [stu respondsToSelector:@selector(finishTask123)];
+    NSLog(@"是否实现了此方法，%d", hasFun2);
+    
+    //执行此stu对象中，名称为finishTask的方法
+    [stu performSelector:@selector(finishTask)];
     
     return 0;
 }
