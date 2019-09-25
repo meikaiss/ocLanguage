@@ -31,6 +31,8 @@ int main(int argc, const char * argv[]) {
         
         test22();
         objectFun();
+        testNSString();
+        testNSArray();
     }
     return 0;
 }
@@ -144,5 +146,117 @@ int objectFun(){
     //执行此stu对象中，名称为finishTask的方法
     [stu performSelector:@selector(finishTask)];
     
+    return 0;
+}
+
+int testNSString(){
+    NSString* string1 = @"meikai1";
+    NSString* string2 = [[NSString alloc] initWithString:@"meikai2"];
+    
+    //占位符，可以实现拼接字符串
+    NSString* string3 = [[NSString alloc] initWithFormat:@"hello %@", string1];
+    //用类的静态方法来创建对象
+    NSString* string4 = [NSString stringWithString:@"hello"];
+    
+    // isEqualTo 用来比较两个字符串的内容是否相同
+    NSString* compare1 = @"123";
+    NSString* compare2 = @"123abc";
+    if ([compare1 isEqualTo:compare2]) {
+        NSLog(@"%@、%@两个字符串的内容是相等的", compare1, compare2);
+    }else{
+        NSLog(@"%@、%@两个字符串的内容是不相等的", compare1, compare2);
+    }
+    
+    //@"abcd"是在常量区中分配的内存，compare3和compare4是在栈中分配的内存
+    NSString* compare3 = @"abcd";
+    NSString* compare4 = @"abcd";
+    if (compare3 == compare4) {
+        //因系统的内存优化，导致compare3和compare4的地址相同
+        NSLog(@"compare3和compare4的内存地址是相同的");
+    }else{
+        NSLog(@"compare3和compare4的内存地址是不相同的");
+    }
+    
+    NSString* compare5 = [[NSString alloc] initWithString:@"abcdef"];
+    NSString* compare6 = [[NSString alloc] initWithString:@"abcdef"];
+    if (compare5 == compare6) {
+        //仍然是在栈中分配的内存
+        NSLog(@"compare5和compare6的内存地址是相同的");
+    }else{
+        NSLog(@"compare5和compare6的内存地址是不相同的");
+    }
+    
+    // ==到底是比较什么？字符串的内存到底分配在哪里了？ 待解释...
+    NSString* compare7 = [[NSString alloc] initWithFormat:@"abc%@",@"def"];
+    NSString* compare8 = [[NSString alloc] initWithFormat:@"abc%@",@"def"];
+    if(compare7 == compare8){
+        NSLog(@"compare7和compare8的内存地是相同的");
+    }else{
+        NSLog(@"compare7和compare8的内存地是不相同的");
+    }
+    
+    NSString *string9 = @"zhangsan";
+    NSString *string10 = @"ZAHNGSAN";
+    //区分大小写判断是否相等
+    NSComparisonResult result = [string9 caseInsensitiveCompare:string10];
+    if(result == NSOrderedSame){
+        NSLog(@"%@和%@的内容是相同的，区分大小写", string9, string10);
+    }else{
+        NSLog(@"%@和%@的内容是不相同的，区分大小写", string9, string10);
+    }
+
+    //比较两个字符串的大小
+    result = [string9 compare:string10];
+    if(result == NSOrderedAscending){
+        //升序
+    }else if(result == NSOrderedDescending){
+        //降序
+    }else if(result == NSOrderedSame){
+        //相同
+    }
+    
+    NSString* s1 = @"meikai";
+    NSMutableString* mutableString1 = [[NSMutableString alloc] initWithString:@"meikai"];
+    if ([s1 isEqualTo:mutableString1]) {
+        NSLog(@"字符串的内容 相同");
+    }else{
+        NSLog(@"字符串的内容 不相同");
+    }
+    
+    if (s1 == mutableString1) {
+        NSLog(@"字符串的地址 相同");
+    }else{
+        NSLog(@"字符串的地址 不相同");
+        
+    }
+    [mutableString1 appendString:@" is a code man"];
+    NSLog(@"%@", mutableString1);
+       
+    return 0;
+}
+
+
+
+int testNSArray(){
+    
+    // nil 表示结束，不会计入数组长度
+    NSArray *array1 = [[NSArray alloc] initWithObjects:@"hello",@"android",@"iOS", nil];
+    NSLog(@"%@",array1);
+ 
+    NSArray *array2 = [NSArray arrayWithArray:array1];
+    NSLog(@"%@",array2);
+    
+    NSString *str1 = [array1 objectAtIndex:2];
+    NSLog(@"%@",str1);
+    
+    NSUInteger count = [array1 count];
+    NSLog(@"数组的长度为 %d",count);
+    
+    NSArray *array7 = @[@"s1",@"s2",@"s3"];
+    NSLog(@"%@",array7);
+    
+    //NSArray类是不可变的，NSMutableArray类是可变的
+    NSMutableArray *mArray1 = [[NSMutableArray alloc] initWithObjects:@"s1",@"s2",@"s3", nil];
+   
     return 0;
 }
