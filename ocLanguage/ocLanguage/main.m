@@ -33,6 +33,10 @@ int main(int argc, const char * argv[]) {
         objectFun();
         testNSString();
         testNSArray();
+        testDictionary();
+        testNSNumber();
+        testDate();
+
     }
     return 0;
 }
@@ -258,5 +262,139 @@ int testNSArray(){
     //NSArray类是不可变的，NSMutableArray类是可变的
     NSMutableArray *mArray1 = [[NSMutableArray alloc] initWithObjects:@"s1",@"s2",@"s3", nil];
    
+    return 0;
+}
+
+int testDictionary(){
+    NSArray* arr1 = @[@"1", @"2", @"3"];
+
+    //添加元素
+    NSDictionary *dict1 = [NSDictionary dictionaryWithObject:arr1 forKey:@"zhang"];
+    
+    NSArray* arr2 = @[@"a", @"b", @"c"];
+    NSDictionary* dict2 = [[NSDictionary alloc] initWithObjectsAndKeys: arr1, @"numArr",
+                           arr2, @"wordArr", nil];
+
+    //获取 所有 key
+    NSArray* allKeys = [dict2 allKeys];
+    NSLog(@"%@", allKeys);
+    
+    //获取 所有 value
+    NSArray* allValues = [dict2 allValues];
+    NSLog(@"%@", allValues);
+    
+    //通过 key获取 value
+    NSArray* getByKey = [dict2 objectForKey:@"wordArr"];
+    NSLog(@"\n获取到指定key的对象为 %@", getByKey);
+    
+    //简写的字典语法
+    NSDictionary* dict3 = @{@"zhangsan":arr1, @"lisi":arr2};
+    NSLog(@"%@", dict3);
+    
+    
+    NSMutableDictionary* md1 = [[NSMutableDictionary alloc] initWithCapacity:3];
+    
+    NSArray *array1 = [[NSArray alloc] initWithObjects:@"activity",@"service", nil];
+    NSArray *array2 = [[NSArray alloc] initWithObjects:@"android",@"iOS", nil];
+    [md1 setObject:array1 forKey:@"module"];
+    [md1 setObject:array2 forKey:@"lang"];
+    
+    //快速遍历
+    for (NSString* key in md1) {
+        NSArray* value= [md1 objectForKey:key];
+        NSLog(@"%@", value);
+    }
+    
+    return 0;
+}
+
+int testNSNumber(){
+    
+    //封包
+    NSNumber *intNumber = [NSNumber numberWithInt:3];
+    NSNumber *floatNumber = [NSNumber numberWithFloat:9.8f];
+    NSArray *array = @[intNumber,floatNumber];
+    
+    //解包
+    int value = [intNumber intValue];
+    float values = [floatNumber floatValue];
+    NSString *str = [intNumber stringValue];
+    
+    //优化语法
+    NSNumber *intNumbers = @12;
+    
+    NSRange rang = {1,20,30};
+    NSValue* v = [NSValue valueWithRange:rang];
+    NSLog(@"%@", v);
+    
+    NSNull *n1 = [NSNull null];
+    NSNull *n2 = [NSNull null];
+    NSArray *nullArray = @[n1,n2];
+    NSLog(@"nullArray =%@",nullArray);
+    
+    
+    
+    return 0;
+}
+
+int testDate(){
+    
+    NSDate* date = [NSDate date];//当前时间点
+    NSLog(@"%@", date);
+    
+    NSDate* date1 = [[NSDate alloc] init];
+    NSLog(@"%@", date1);
+    
+    //在当前时间加上10s,如果是减去一个时间，直接使用负值就可以了
+    NSDate* date2 = [NSDate dateWithTimeIntervalSinceNow:10];
+    NSLog(@"%@", date2);
+    
+    NSDate *date3 = [NSDate dateWithTimeIntervalSince1970:1];//参数为时间戳的大小
+    NSLog(@"%@", date3);
+    
+    //创建一个日期，然后拿到时间戳
+    NSDate *now = [NSDate date];
+    NSTimeInterval interval = [now timeIntervalSince1970];
+    interval = [now timeIntervalSinceNow];//到当前时间的一个差值
+    NSLog(@"%ld", interval);
+
+    //日期的比较
+    //通过调用日期对象的compare，或者通过两个日期之间的差值判断
+    NSComparisonResult result = [date1 compare:date2];
+    if(result == NSOrderedAscending){
+        //大于
+        NSLog(@"入参比 调用者 大");
+    }else if(result == NSOrderedDescending){
+        //小于
+        NSLog(@"入参比 调用者 小");
+    }else{
+        //等于
+        NSLog(@"入参比 调用者 相等");
+    }
+    
+    //下面的方法是从格林时区开始添加和减去一个时区值(格林时区为0)
+    //[NSTimeZone timeZoneForSecondsFromGMT:0];
+     
+    //通过打印可以得到具体的时区
+    NSArray *array = [NSTimeZone knownTimeZoneNames];//获取所有的时区
+    for(NSString *str in array){
+        NSLog(@"%@",str);
+    }
+    
+    //日期格式化
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy哈MM-dd HH:mm:ss"];
+    NSString *str = [dateFormatter stringFromDate:date];
+    NSLog(@"%@",str);
+    
+    //设置时区
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"America/New_York"];
+    [dateFormatter setTimeZone:timeZone];
+    
+    //将字符串转化成日期对象
+    NSString *strs = @"2013年12月14日 16:31:08";
+    [dateFormatter setDateFormat:@"yyyy年MM月dd日 HH:mm:ss"];
+    date1 = [dateFormatter dateFromString:strs];
+    
     return 0;
 }
