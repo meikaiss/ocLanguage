@@ -17,6 +17,7 @@
 
 #import "NSString+Extension123.h"
 #import "protocol/Student.h"
+#import "Person2.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -36,6 +37,9 @@ int main(int argc, const char * argv[]) {
         testDictionary();
         testNSNumber();
         testDate();
+        testException();
+        textDocument();
+        predicate();
 
     }
     return 0;
@@ -395,6 +399,129 @@ int testDate(){
     NSString *strs = @"2013年12月14日 16:31:08";
     [dateFormatter setDateFormat:@"yyyy年MM月dd日 HH:mm:ss"];
     date1 = [dateFormatter dateFromString:strs];
+    
+    return 0;
+}
+
+int testException(){
+
+    @try{
+        NSInteger a = 1/0;
+    }@catch(NSException* exception){
+        NSLog(@"%@", exception);
+    }@finally{
+        NSLog(@"完成");
+    }
+    
+    
+    return 0;
+}
+
+int textDocument(){
+    
+    //第一种形式：归档对象
+    //对象----》文件
+     NSArray *array0 = [NSArray arrayWithObjects:@"zhang",@"wangwu",@"lisi",nil];
+     NSString *filePath0 = [NSHomeDirectory() stringByAppendingPathComponent:@"array.src"];
+     
+     BOOL success = [NSKeyedArchiver archiveRootObject:array0 toFile:filePath0];
+     if(success){
+         NSLog(@"保存成功");
+     }
+    
+    //解归档
+    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"array.src"];
+    id array = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    NSLog(@"%@",array);
+    
+    {
+        // 对多个对象 归档
+        //第二种方式
+        //第一种方式的缺陷是一个对象归档成一个文件
+        //但是第二种方式，多个对象可以归档成一个文件
+         NSArray *array = [NSArray arrayWithObjects:@"zhangsan",@"lisi", nil];
+         NSMutableData *data = [NSMutableData data];
+         NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+         //编码
+         [archiver encodeObject:array forKey:@"array"];
+         [archiver encodeInt:100 forKey:@"scope"];
+         [archiver encodeObject:@"jack" forKey:@"name"];
+         
+         //完成编码，将上面的归档数据填充到data中，此时data中已经存储了归档对象的数据
+         [archiver finishEncoding];
+         //[archiver release];
+         
+         NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"array.src"];
+         BOOL success = [data writeToFile:filePath atomically:YES];
+         if(success){
+             NSLog(@"归档成功");
+         }
+    }
+    
+    {
+        
+         NSString* filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"array.src"];
+          //读取归档数据
+          NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
+          //创建解归档对象，对data中的数据进行解归档
+          NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+          //解归档
+          NSArray *array = [unarchiver decodeObjectForKey:@"array"];
+          NSLog(@"array的key对应的内容为:%@",array);
+          
+          int value = [unarchiver decodeObjectForKey:@"scope"];
+          NSLog(@"scope的key对应的内容为:%d",value); //???这里为什么没有取出来？
+        
+    }
+ 
+    return 0;
+}
+
+int predicate(){
+    
+    NSArray *personArr =[NSArray arrayWithObjects:
+                         [Person2 personWithName:@"1" andAge:10],
+                         [Person2 personWithName:@"2" andAge:20],
+                         [Person2 personWithName:@"3" andAge:30],
+                         [Person2 personWithName:@"4" andAge:40],
+                         [Person2 personWithName:@"5" andAge:50],
+                         [Person2 personWithName:@"50" andAge:50],
+                         [Person2 personWithName:@"6" andAge:60],
+                         [Person2 personWithName:@"116" andAge:60],
+                         [Person2 personWithName:@"767" andAge:70],
+                         [Person2 personWithName:@"8s" andAge:80],
+                         [Person2 personWithName:@"9s" andAge:90],
+                         nil];
+    
+    NSLog(@"源数组=%@", personArr);
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age<%d", 50];
+    NSArray* filterArray = [personArr filteredArrayUsingPredicate:predicate];
+    NSLog(@"过滤后的数组=%@", filterArray);
+    
+    predicate = [NSPredicate predicateWithFormat:@"name = '3' && age<%d", 50];
+    filterArray = [personArr filteredArrayUsingPredicate:predicate];
+    NSLog(@"过滤后的数组=%@", filterArray);
+
+    predicate = [NSPredicate predicateWithFormat:@"self.name IN {'2', '3'} || self.age IN { 70,80}"];
+    filterArray = [personArr filteredArrayUsingPredicate:predicate];
+    NSLog(@"过滤后的数组=%@", filterArray);
+    
+    predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH '5'"];
+    filterArray = [personArr filteredArrayUsingPredicate:predicate];
+    NSLog(@"过滤后的数组=%@", filterArray);
+    
+    predicate = [NSPredicate predicateWithFormat:@"name ENDSWITH '6'"];
+    filterArray = [personArr filteredArrayUsingPredicate:predicate];
+    NSLog(@"过滤后的数组=%@", filterArray);
+    
+    predicate = [NSPredicate predicateWithFormat:@"name CONTAINS '6'"];
+    filterArray = [personArr filteredArrayUsingPredicate:predicate];
+    NSLog(@"过滤后的数组=%@", filterArray);
+    
+    predicate = [NSPredicate predicateWithFormat:@"name LIKE '*s'"];
+    filterArray = [personArr filteredArrayUsingPredicate:predicate];
+    NSLog(@"过滤后的数组=%@", filterArray);
     
     return 0;
 }
